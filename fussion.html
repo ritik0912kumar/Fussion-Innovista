@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusion Innovista | Data Education & Internships</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --primary-dark: #2667cc;
+            --primary-light: rgba(58, 134, 255, 0.1);
+            --dark: #2b2d42;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --dark-gray: #495057;
+            --light-gray: #e9ecef;
+            --card-bg: #ffffff;
+            --body-bg: #f5f5f5;
+            --text: #212529;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --nav-height: 70px;
+            --nav-link-padding: 1rem 1.5rem;
+        }
+
+        .dark-mode {
+            --primary: #4dabf7;
+            --primary-dark: #3a86ff;
+            --primary-light: rgba(77, 171, 247, 0.1);
+            --dark: #f8f9fa;
+            --light: #212529;
+            --gray: #adb5bd;
+            --dark-gray: #dee2e6;
+            --light-gray: #343a40;
+            --card-bg: #2b2d42;
+            --body-bg: #1a1b2e;
+            --text: #f8f9fa;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--body-bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding-top: var(--nav-height);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Enhanced Navbar Styles */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            height: 100%;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 30px;
+            width: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .nav-links li {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: var(--nav-link-padding);
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        /* Navbar link hover and active states */
+        .nav-links a:not(.active):hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:not(.active):hover:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1.5rem;
+            right: 1.5rem;
+            height: 3px;
+            background-color: var(--primary-light);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .nav-links a.active:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 1.5rem;
+            right: 1.5rem;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-left: 1.5rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--light-gray);
+            transform: scale(1.1);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .mobile-menu:hover {
+            background-color: var(--light-gray);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--card-bg) 0%, var(--light-gray) 100%);
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 3rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: var(--gray);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--primary);
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Domains Section */
+        .domains {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h3:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 25%;
+        }
+
+        .domain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .domain-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .domain-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .domain-icon {
+            background-color: var(--primary);
+            color: white;
+            font-size: 2rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .domain-content {
+            padding: 1.5rem;
+        }
+
+        .domain-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .domain-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .learn-more {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .learn-more:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+
+        .learn-more:hover:after {
+            width: 100%;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 3rem 0;
+            background-color: var(--light-gray);
+            margin: 3rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 3rem 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .testimonial-card:before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.1;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .author-info h5 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 3rem 0;
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 3rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-top: 0.2rem;
+        }
+
+        .contact-item h5 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text);
+        }
+
+        .contact-item p, .contact-item a {
+            color: var(--gray);
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 5px;
+            background-color: var(--card-bg);
+            color: var(--text);
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--card-bg);
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 0.25rem;
+            }
+            
+            .nav-links a {
+                padding: 1rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                position: fixed;
+                top: var(--nav-height);
+                left: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - var(--nav-height));
+                background-color: var(--card-bg);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2rem;
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s ease;
+                overflow-y: auto;
+            }
+
+            .nav-container.active {
+                left: 0;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                gap: 0.5rem;
+                height: auto;
+            }
+
+            .nav-links li {
+                width: 100%;
+                height: auto;
+                padding: 0;
+            }
+
+            .nav-links a {
+                padding: 0.75rem 1rem;
+                height: auto;
+                width: 100%;
+            }
+
+            .nav-links a:after {
+                left: 1rem !important;
+                right: 1rem !important;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .nav-buttons {
+                margin-left: auto;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 3rem 0;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h3 {
+                font-size: 1.5rem;
+            }
+
+            .domain-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#home" class="logo">
+                    <h1>Fussion Innovista</h1>
+                </a>
+                
+                <div class="nav-container" id="navContainer">
+                    <ul class="nav-links">
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#domains">Domains</a></li>
+                        <li><a href="#success-stories">Success Stories</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                    <div class="nav-buttons">
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Launch Your Career in IT Services and IT Consulting</h2>
+            <p>Gain real-world experience through our industry-focused internships and mentorship programs in cutting-edge technology domains.</p>
+            <a href="#success-stories" class="cta-button">Explore Success Stories</a>
+        </div>
+    </section>
+
+    <section class="domains" id="domains">
+        <div class="container">
+            <div class="section-title">
+                <h3>Our Specialization Domains</h3>
+            </div>
+            <div class="domain-grid">
+                <div class="domain-card">
+                    <div class="domain-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="domain-content">
+                        <h4>Data Analyst</h4>
+                        <p>Unlock insights from your data with our expert analysis. Learn to transform raw data into actionable business intelligence.</p>
+                        <a href="#" class="learn-more">Learn more →</a>
+                    </div>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="domain-content">
+                        <h4>Business Analyst</h4>
+                        <p>Transform your business processes with data-driven strategies. Bridge the gap between IT and business objectives.</p>
+                        <a href="#" class="learn-more">Learn more →</a>
+                    </div>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="domain-content">
+                        <h4>Machine Learning</h4>
+                        <p>Build intelligent systems with our cutting-edge ML solutions. From algorithms to deployment, master the ML pipeline.</p>
+                        <a href="#" class="learn-more">Learn more →</a>
+                    </div>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="domain-content">
+                        <h4>Database Administrator</h4>
+                        <p>Ensure seamless data management and security. Master database design, implementation, and optimization.</p>
+                        <a href="#" class="learn-more">Learn more →</a>
+                    </div>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="domain-content">
+                        <h4>Web Developer</h4>
+                        <p>Create stunning, responsive websites tailored to your needs. Learn full-stack development with modern frameworks.</p>
+                        <a href="#" class="learn-more">Learn more →</a>
+                    </div>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="domain-content">
+                        <h4>Software Developer</h4>
+                        <p>Develop custom software solutions for your business. Master coding best practices and software engineering principles.</p>
+                        <a href="#" class="learn-more">Learn more →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h3>Why Choose Our Programs</h3>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h4>Industry Mentors</h4>
+                    <p>Learn from professionals with years of experience in top tech companies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h4>Real Projects</h4>
+                    <p>Work on actual business problems, not just theoretical exercises.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h4>Certification</h4>
+                    <p>Earn recognized certificates to boost your resume and LinkedIn profile.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h4>Networking</h4>
+                    <p>Connect with industry professionals and like-minded peers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="success-stories">
+        <div class="container">
+            <div class="section-title">
+                <h3>Success Stories</h3>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>The Data Analyst program completely transformed my approach to problem-solving within 3 months of completing the program.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SP</div>
+                        <div class="author-info">
+                            <h5>Sarah Patel</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>As a career switcher, the structured learning path and hands-on projects gave me the confidence and skills I needed to break into the tech industry.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MJ</div>
+                        <div class="author-info">
+                            <h5>Ayushi Singh</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>The mentorship I received during my Business Analyst program was unparalleled. I still reach out to my mentor for career advice years later.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RG</div>
+                        <div class="author-info">
+                            <h5>Gagan Degania</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h3>About Us</h3>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Empowering the next generation of tech professionals</h3>
+                    <p>Fusion Innovista was founded in 2024 with a mission to bridge the gap between academic learning and industry requirements in the fast-evolving tech landscape.</p>
+                    <p>Our team consists of industry veterans from top tech companies who are passionate about mentoring the next generation of data and technology professionals.</p>
+                    <p>We believe in hands-on, project-based learning that prepares our students for real-world challenges they'll face in their careers.</p>
+                    <a href="#contact" class="cta-button">Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h3>Contact Us</h3>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <p>Have questions about our programs or want to discuss how we can help you achieve your career goals? Reach out to us!</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Location</h5>
+                                <p>Sector 39<br>Gurugram, Haryana</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h5>Join Us on Telegram</h5>
+                                <p><a href="https://t.me/fussioninnovista" >Link To Join</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5>Email</h5>
+                                <p>fussioninnovista@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <input type="text" placeholder="Subject">
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2024 Fusion Innovista. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navContainer = document.getElementById('navContainer');
+
+        mobileMenu.addEventListener('click', () => {
+            navContainer.classList.toggle('active');
+            document.body.style.overflow = navContainer.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navContainer.contains(e.target) && !mobileMenu.contains(e.target)) {
+                navContainer.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved user preference
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - document.querySelector('header').offsetHeight,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${targetId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navContainer.classList.contains('active')) {
+                        navContainer.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+        });
+
+        // Highlight active section in navbar
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY + document.querySelector('header').offsetHeight + 100;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-links a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
